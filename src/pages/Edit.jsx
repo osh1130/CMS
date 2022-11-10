@@ -3,7 +3,8 @@ import { Button, PageHeader, Modal, Form, Input,message } from 'antd'
 import moment from 'moment'
 import E from 'wangeditor'
 import { ArticleAddApi, ArticleSearchApi, ArticleUpdateApi } from '../request/api'
-import {useParams, useNavigate, useLocation} from 'react-router-dom'
+import {useParams, useNavigate} from 'react-router-dom'
+import {useLocation} from 'react-router-dom'
 
 let editor = null
 
@@ -15,6 +16,7 @@ export default function Edit() {
   const [subTitle, setSubTitle] = useState('')
   const [form] = Form.useForm();
   const navigate = useNavigate()
+  let {pathname} = useLocation()
   let params  = useParams()		// 得到当前路径的id
 
   // 处理请求数据
@@ -31,9 +33,8 @@ export default function Edit() {
     }
   }
 
-  const showModal = () => {
-    setIsModalOpen(true);
-  };
+  
+
   //对话框点击了提交
   const handleOk = () => {
     //关闭对话框
@@ -54,9 +55,7 @@ export default function Edit() {
       })
       .catch(() => false);
   };
-  const handleCancel = () => {
-    setIsModalOpen(false);
-  };
+  
 
   // 模拟componentDidMount
   useEffect(() => {
@@ -84,7 +83,7 @@ export default function Edit() {
       // 组件销毁时销毁编辑器  注：class写法需要在componentWillUnmount中调用
       editor.destroy()
     }
-  },[])
+  },[pathname])
   
   return (
     <div>
@@ -93,12 +92,12 @@ export default function Edit() {
       onBack={params.id ? () =>  window.history.back(): null}
       title="Edit"
       subTitle={'Date: '+moment(new Date()).format("YYYY-MM-DD")}
-      extra={<Button key="1" type="primary" onClick={showModal}>Submit</Button>}
+      extra={<Button key="1" type="primary" onClick={()=>setIsModalOpen(true)}>Submit</Button>}
     > </PageHeader>
 
       <div id="div1" style={{ padding: '0 20px 20px', background: '#fff' }}></div>
 
-      <Modal zIndex={99999} title="Basic Modal" open={isModalOpen} onOk={handleOk} onCancel={handleCancel} >
+      <Modal zIndex={99999} title="Basic Modal" open={isModalOpen} onOk={handleOk} onCancel={()=>setIsModalOpen(false)} >
       
       <Form
           form={form}
@@ -106,11 +105,11 @@ export default function Edit() {
           labelCol={{ span: 3 }}
           wrapperCol={{ span: 21 }}
           autoComplete="off"
-          //给弹出框设置初始值（通过name作为key找到并用甘冈定义）
+          //给弹出框设置初始值（通过name作为key找到并用定义）
           initialValues={{ title, subTitle }}
         >
           <Form.Item
-            label="标题"
+            label="title"
             name="title"
             rules={[{ required: true, message: '请填写标题' }]}
           >
@@ -118,7 +117,7 @@ export default function Edit() {
           </Form.Item>
 
           <Form.Item
-            label="副标题"
+            label="subTitle"
             name="subTitle"
           >
             <Input />

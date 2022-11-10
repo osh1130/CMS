@@ -30,13 +30,19 @@ export default function Header() {
         setTimeout(()=>navigate('/login'),1500)
     }
 
+    //修改资料
+    const changemeans=() =>{
+        setTimeout(()=>navigate('/means'),1500)
+    }
+
+    //下拉表单
     const menu = (
     <Menu
         items={[
         {
             key: '1',
             label: (
-            <a target="_blank" >
+            <a target="_blank" onClick={changemeans}>
                 修改资料
             </a>
             ),
@@ -52,6 +58,8 @@ export default function Header() {
         ]}
   />
   );
+
+
   return (
     <header>
         <img src={logoImg} alt="" className="logo" />

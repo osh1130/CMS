@@ -18,7 +18,7 @@ export default function Listlist() {
   //请求封装
   const getList = (num) =>{
     ArticleListApi({
-      num:num,
+      num:current,
       count:pageSize
     }).then(res=>{
       //console.log(res)

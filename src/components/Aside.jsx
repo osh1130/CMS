@@ -18,18 +18,18 @@ export default function Aside() {
         };
       }
 
-      const items = [ 
+    const items = [ 
         getItem('查看文章列表list', 'listlist', <AppstoreOutlined />, ),
         //getItem('查看文章列表table', 'listtable', <AppstoreOutlined />, ),
         getItem('文章编辑', 'edit',<EditOutlined />, ),
         getItem('修改资料', 'means', <SettingOutlined />, ),
       ];
 
-  useEffect(()=>{
-    let path=location.pathname;
-    let key=path.split('/')[1];
-    setDefaultkey(key)
-  })
+   useEffect(()=>{
+     let path=location.pathname;
+     let key=path.split('/')[1];
+     setDefaultkey(key)
+   },[])
 
     const onClick = (e) => {
         //console.log('/', e.key);

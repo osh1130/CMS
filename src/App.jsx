@@ -1,18 +1,20 @@
-import React from 'react'
+import React,{useState} from 'react'
 import {Outlet} from 'react-router-dom'
 import { Layout } from 'antd'
 import Header from './components/Header' 
 import Aside from './components/Aside'
 import Bread from './components/Bread'
+import {connect} from 'react-redux'
 
 
-const {Sider, Content } = Layout
 
 
-export default function App() {
+function App(props) {
+  //const [mykey,setMyKey]=useState(1)
+
   return (
     <Layout id='apppage'>
-      <Header/>
+      <Header key={props.mykey} />
       <div className='container'>
         <Aside/>
         <div className='container_box'>
@@ -27,3 +29,11 @@ export default function App() {
     
   )
 }
+
+const mapStateToProps = (state) =>{
+  return{
+    mykey: state.mykey
+  }
+}
+
+export default  connect(mapStateToProps)(App)
