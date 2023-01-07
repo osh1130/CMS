@@ -27,15 +27,23 @@ Content Management System is a system located between the WEB front-end (Web ser
 - App should now be running on `http://localhost:3000/`
 
 
-## What's missing?
+## Run this Project
+```
+git clone https://github.com/osh1130/CMS.git 
 
-There are still more features that can be perfected for this demo product:
+cd CMS
+
+npm install
+
+npm run start 
+
+```
+
 
 
 ## Generator
 
 [create-react-app] https://create-react-app.dev/
-
 
 
 ## Technology Stack
@@ -84,26 +92,18 @@ src
 
 - [x] Register/Login 
 - [x] Checking/Modify essays details-- Means
-- [x] Creating new essay/Checking essays list--List
+- [x] Creating new essay/Checking essays list--List（[HomePage.png](https://postimg.cc/k27ZMhkT)）
 - [x] Modify personal information
 
-
-## Run this Project
-**Note: nodejs must over 6.0 version**
-```
-git clone https://github.com/osh1130/CMS.git 
-
-cd CMS
-
-npm install
-
-npm run start 
-
-```
+[![register.png](https://i.postimg.cc/mDbVP9h6/register.png)](https://postimg.cc/GB5vNHFk)
+[![login.png](https://i.postimg.cc/QCwS6xJQ/login.png)](https://postimg.cc/Lgkz5S75)
+[![Editor.png](https://i.postimg.cc/sxDtFXWb/Editor.png)](https://postimg.cc/TLFkgTCc)
+[![means.png](https://i.postimg.cc/Kzmn8y4P/means.png)](https://postimg.cc/bGFGmWxr)
 
 
+## What's missing?
 
-
+There are still more features that can be perfected for this demo product:
 
 
 ## renderings
