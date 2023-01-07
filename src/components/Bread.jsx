@@ -13,13 +13,13 @@ export default function Bread() {
         //    setBreadname("查看文章列表table");
         //    break;
         case "/listlist":
-              setBreadname("查看文章列表list");
+              setBreadname("view article list");
               break;
         case "/edit":
-            setBreadname("文章编辑");
+            setBreadname("article editor");
             break;
         case "/means":
-            setBreadname("修改文章");
+            setBreadname("modify means");
             break;
         default:
             //从编辑按钮进入编辑面包屑也要修改

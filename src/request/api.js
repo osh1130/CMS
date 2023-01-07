@@ -1,4 +1,5 @@
 import request from './request'
+//Unified management of all request path APIs in the project
 
 //注册
 export const RegisterApi = (params) => request.post('/register', params)

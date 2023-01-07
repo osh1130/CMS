@@ -9,27 +9,29 @@ import { LoginApi } from '../request/api'
 
 export default function Login() {
   const navigate = useNavigate()
+  
   const onFinish = (values) => {
     //console.log('Success:', values);
-  LoginApi({
-      username: values.username,
-      password: values.password
-    }).then(res=>{
-      //console.log(res)
-      if(res.errCode===0){
-        message.success(res.message);
-        //存储数据,不作为字符串储存是因为这么储存容易拿
-        localStorage.setItem("avatar",res.data.avatar)
-        localStorage.setItem("cms-token",res.data['cms-token'])
-        localStorage.setItem("editable",res.data.editable)
-        localStorage.setItem("player",res.data.player)
-        localStorage.setItem("username",res.data.username)
-        //并跳转到根路径
-        setTimeout(()=>navigate('/'),1500)
-      } else{
-        message.error(res.message);
-      }
-    }) //跨域
+    LoginApi({
+        username: values.username,
+        password: values.password
+      }).then(res=>{
+        //console.log(res)
+        if(res.errCode===0){
+          message.success(res.message);
+          //Store data, not as a string because it is easy to store in this way
+          localStorage.setItem("avatar",res.data.avatar)
+          localStorage.setItem("cms-token",res.data['cms-token'])
+          localStorage.setItem("editable",res.data.editable)
+          localStorage.setItem("player",res.data.player)
+          localStorage.setItem("username",res.data.username)
+          //console.log(localStorage.getItem("cms-token"));
+          //并跳转到根路径
+          setTimeout(()=>navigate('/listlist'),1500)
+        } else{
+          message.error(res.message);
+        }
+      }) 
   };
   
   

@@ -147,7 +147,10 @@ function Means(props) {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    
+    //changeMsgFn(){
+    //  let action = {type: 'changeUsername', value: 'hello world'}
+    //  dispatch(action)
+    //},
     addKey(){
       dispatch({type: "addKeyFn"})
     }

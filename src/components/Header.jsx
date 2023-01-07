@@ -26,6 +26,7 @@ export default function Header() {
     //退出登录
     const logout=() =>{
         localStorage.clear()
+        //console.log(localStorage.getItem("cms-token"));
         message.success("logging out")
         setTimeout(()=>navigate('/login'),1500)
     }
