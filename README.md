@@ -5,7 +5,7 @@
 
 ## Generator
 
-[webpack](https://www.npmjs.com/package/webpack)
+[create-react-app]
 
 
 
