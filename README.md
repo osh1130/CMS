@@ -12,7 +12,7 @@
 ## Technology Stack
 
 react + react-router-dom + axios + ES6 + antd + less-loader + redux
-api ：[http://xiaoyaoji.cn/project/1kSQB8SHnDV/share/1mfpzz0vdw0 )
+
 
 ## structure
 
@@ -76,7 +76,7 @@ npm run start
 
 ## Effect demo
 
-http://localhost:3000/listlist
+http://localhost:3000
 
 
 
