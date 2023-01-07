@@ -5,7 +5,7 @@
 
 ## Generator
 
-[create-react-app]https://create-react-app.dev/
+[create-react-app] https://create-react-app.dev/
 
 
 
