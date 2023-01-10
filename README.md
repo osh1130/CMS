@@ -12,6 +12,7 @@
 ## What is this 🤷‍♀️
 
 Content Management System is a system located between the WEB front-end (Web server) and the back-end office system (content creation, editing). Users can create, edit, and publish content. The "content" referred to here may include files and pictures.
+And which has been deploied by aws amplify
 
 ## Features 🚥
 
