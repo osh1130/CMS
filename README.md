@@ -2,7 +2,7 @@
 
 
 <h3 align="center">
-  <a href="https://jira.ivorreic.com/">Visit the app</a> |
+  <a href="https://master.d1yj3xpybcql1z.amplifyapp.com/">Visit the app</a> |
   <a href="https://github.com/osh1130/CMS/blob/master/CMS-API.md">View API</a>
 </h3>
 
