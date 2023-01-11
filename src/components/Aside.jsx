@@ -20,7 +20,7 @@ export default function Aside() {
 
     const items = [ 
         getItem('view article list', '/listlist', <AppstoreOutlined />, ),
-        //getItem('查看文章列表table', 'listtable', <AppstoreOutlined />, ),
+        //getItem('table', 'listtable', <AppstoreOutlined />, ),
         getItem('article editor', '/edit',<EditOutlined />, ),
         getItem('modify means', '/means', <SettingOutlined />, ),
       ];

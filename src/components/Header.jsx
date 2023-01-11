@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { Dropdown, Menu, Space,message } from 'antd'
 import { CaretDownOutlined  } from '@ant-design/icons'
-import logoImg from "../assets/logo.png"
+import logoImg from "../assets/logo1.jpg"
 import defaultAvatar from '../assets/defaultavatar.jpg'
 import { useNavigate } from 'react-router'
 

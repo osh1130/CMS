@@ -17,15 +17,15 @@ export default function Edit() {
   const [form] = Form.useForm();
   const navigate = useNavigate()
   let {pathname} = useLocation()
-  let params  = useParams()		// 得到当前路径的id
+  let params  = useParams()		// get the current path of id
 
-  // 处理请求数据
+  // request
   const dealData = (errCode, msg) => {
-    setIsModalVisible(false); // 关闭对话框
+    setIsModalVisible(false); // close Modal
     if (errCode === 0) {
       message.success(msg)
       setTimeout(() => {
-        // 跳回list页面
+        // navigate list page
         navigate('/listlist')
       }, 1500)
     } else {
@@ -35,21 +35,20 @@ export default function Edit() {
 
   
 
-  //对话框点击了提交
+  //Modal clicked Submit
   const handleOk = () => {
-    //关闭对话框
     //setIsModalOpen(false);
     form
-      .validateFields()    // validate校验   field字段
+      .validateFields()    // validate   field
       .then((values) => {
-        // form.resetFields();   // reset重置
+        // form.resetFields();   // reset
         let { title, subTitle } = values;
-        // 地址栏有id代表现在想要更新一篇文章
+        // The id in the address bar means that you want to update an article now
         if (params.id) {
-          // 更新文章的请求
+          // Request to update an article
           ArticleUpdateApi({ title, subTitle, content, id: params.id }).then(res => dealData(res.errCode, res.message))
         } else {
-          // 添加文章的请求
+          // Request to add an article
           ArticleAddApi({ title, subTitle, content }).then(res => dealData(res.errCode, res.message))
         }
       })
@@ -57,7 +56,7 @@ export default function Edit() {
   };
   
 
-  // 模拟componentDidMount
+  // componentDidMount
   useEffect(() => {
     editor = new E('#div1')
     editor.config.onchange = (newHtml) => {
@@ -65,14 +64,14 @@ export default function Edit() {
     }
     editor.create()
 
-    //根据地址栏id做请求
+    //Make a request based on the address bar id
     if(params.id){
       ArticleSearchApi({id: params.id}).then(res => {
         //console.log(res)
         if(res.errCode===0){
           //let {title,subTitle} = res.data;
           //setContent(content);
-          editor.txt.html(res.data.content) // 重新设置编辑器内容
+          editor.txt.html(res.data.content) // Reset editor content
           setTitle(res.data.title)
           setSubTitle(res.data.subTitle)
         }
@@ -80,7 +79,7 @@ export default function Edit() {
     }
 
     return () => {
-      // 组件销毁时销毁编辑器  注：class写法需要在componentWillUnmount中调用
+      // Destroy the editor when the component is destroyed Note: The class writing method needs to be called in componentWillUnmount
       editor.destroy()
     }
   },[pathname])
@@ -105,13 +104,13 @@ export default function Edit() {
           labelCol={{ span: 3 }}
           wrapperCol={{ span: 21 }}
           autoComplete="off"
-          //给弹出框设置初始值（通过name作为key找到并用定义）
+          //Set the initial value for the pop-up box (find and define it by name as the key)
           initialValues={{ title, subTitle }}
         >
           <Form.Item
             label="title"
             name="title"
-            rules={[{ required: true, message: '请填写标题' }]}
+            rules={[{ required: true, message: 'Please fill in the title' }]}
           >
             <Input />
           </Form.Item>

@@ -1,7 +1,7 @@
 import React from 'react'
 import "./less/login.less"
 import { Button, Checkbox, Form, Input,message  } from 'antd'
-import logoImg from "../assets/logo.png"
+import logoImg from "../assets/logo1.jpg"
 import { LockOutlined, UserOutlined } from '@ant-design/icons'
 import {Link,useNavigate} from "react-router-dom"
 import { LoginApi } from '../request/api'
@@ -26,7 +26,6 @@ export default function Login() {
           localStorage.setItem("player",res.data.player)
           localStorage.setItem("username",res.data.username)
           //console.log(localStorage.getItem("cms-token"));
-          //并跳转到根路径
           setTimeout(()=>navigate('/listlist'),1500)
         } else{
           message.error(res.message);

@@ -1,7 +1,7 @@
 import React from 'react'
 import "./less/login.less"
 import { Button, Checkbox, Form, Input,message } from 'antd'
-import logoImg from "../assets/logo.png"
+import logoImg from "../assets/logo1.jpg"
 import { LockOutlined, UserOutlined } from '@ant-design/icons'
 import {Link, useNavigate} from "react-router-dom"
 import { RegisterApi } from '../request/api'

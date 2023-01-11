@@ -15,7 +15,7 @@ export default function Listlist() {
   const navigate = useNavigate()
   const [update, setUpdate] = useState(1)
   
-  //请求封装
+  //encapsulation request for every page
   const getList = (num) =>{
     ArticleListApi({
       num:current,
@@ -33,19 +33,20 @@ export default function Listlist() {
     })
   }
 
-  //请求列表数据 componentDidMount
+  //request for list data: componentDidMount
   useEffect(()=>{
     getList(current)
   },[])
 
-  // 模拟componentDidUpdate
+  // componentDidUpdate
   useEffect(() => {
     getList(current)
   }, [update])
 
+  //pagenation
   const onChange = (page) => {
     //console.log(page);
-    //setCurrent(page); 是异步的
+    //setCurrent(page); asyn
     getList(page);
   };
 
@@ -55,7 +56,7 @@ export default function Listlist() {
       //console.log(res)
       if(res.errCode===0){
         message.success(res.message)
-        //重新刷页面，要么重新请求这个列表的数据 window.reload 调用getList(1) 增加变量的检测
+        //Refresh the page, or re-request the data of this list window.reload call getList(1) to increase the detection of variables
         setUpdate(update+1)
       }
     })

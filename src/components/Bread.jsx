@@ -10,7 +10,7 @@ export default function Bread() {
   useEffect(()=>{
     switch(pathname){
         //case "/listtable":
-        //    setBreadname("查看文章列表table");
+        //    setBreadname("table");
         //    break;
         case "/listlist":
               setBreadname("view article list");
@@ -22,8 +22,8 @@ export default function Bread() {
             setBreadname("modify means");
             break;
         default:
-            //从编辑按钮进入编辑面包屑也要修改
-            setBreadname(pathname.includes('edit') ? '文章编辑' : "");
+            //Going from the edit button to edit the breadcrumbs should also be modified
+            setBreadname(pathname.includes('edit') ? 'article editor' : "");
             break;
     }
   },[pathname])

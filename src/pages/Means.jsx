@@ -5,7 +5,7 @@ import { GetUserInfoApi, ChangeUserDataApi} from '../request/api'
 import { LoadingOutlined, PlusOutlined } from '@ant-design/icons'
 import {connect} from 'react-redux'
 
-// 限制图片大小只能是200KB
+// Limit image size to 200KB
 function beforeUpload(file) {
   const isJpgOrPng = file.type === 'image/jpeg' || file.type === 'image/png';
   if (!isJpgOrPng) {
@@ -18,7 +18,7 @@ function beforeUpload(file) {
   return isJpgOrPng && isLt2M;
 }
 
-  // 将图片路径转base64
+  // Convert image path to base64
   function getBase64(img, callback) {
     const reader = new FileReader();
     reader.addEventListener('load', () => callback(reader.result));
@@ -40,16 +40,16 @@ function Means(props) {
     GetUserInfoApi().then(res=>{
       if(res.errCode===0){
         message.success(res.message)
-        //根本原因在于set是异步的
+        //set asyn
         //setUsername1(res.data.username)
         //setPassword1(res.data.password)
-        //存到sessionStorage
+        //save in sessionStorage
         sessionStorage.setItem('username',res.data.username)
       }
     })
   })
 
-  // 点击了上传图片
+  // clicked upload image
   const handleChange = info => {
     if (info.file.status === 'uploading') {
       setLoading(true)
@@ -60,32 +60,32 @@ function Means(props) {
       getBase64(info.file.originFileObj, imageUrl =>{
         setLoading(false)
         setImageUrl(imageUrl)
-        // 存储图片名称
+        // store picture name
         localStorage.setItem('avatar', info.file.response.data.filePath)
         //window.location.reload()
-        // 使用react-redux
+        // use react-redux
         props.addKey()
       }
       );
     }
   };
 
-  // 表单提交的事件
+  // form submit event
   const onFinish = (values) => {
-    // 如果表单的username有值，并且不等于初始化时拿到的username，同时密码非空
+    // If the username of the form has a value and is not equal to the username obtained during initialization, and the password is not empty
     if(values.username && values.username!==sessionStorage.getItem('username') && values.password.trim() !== ""){
-      // 做表单的提交...
+      // Do form submission...
       ChangeUserDataApi({
         username: values.username,
         password: values.password
       }).then(res=>{
         console.log(res)
-        // 当你修改成功的时候，不要忘了重新登录
+        // When you modify successfully, don't forget to log in again
       })
     }
   }
 
-  // 上传按钮
+  // upload button
   const uploadButton = (
     <div>
       {loading ? <LoadingOutlined /> : <PlusOutlined />}
@@ -128,7 +128,7 @@ function Means(props) {
       </Form.Item>
     </Form>
 
-    <p>点击下方修改头像：</p>
+    <p>Click below to modify the avatar：</p>
       <Upload
         name="avatar"
         listType="picture-card"
